@@ -1021,6 +1021,8 @@ class SpiceParser:
 
         circuit = Circuit(str(self._title))
         self._build_circuit(circuit, self._statements, ground)
+        for subcircuit in self.subcircuits:
+            circuit.subcircuit(subcircuit.build(ground))
         return circuit
 
     ##############################################
